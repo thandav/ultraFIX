@@ -39,7 +39,7 @@ CPP_SRC_FILES	:= \
 
 CC=g++
 CCFLAGS=-fPIC -g -w -I/usr/include/libxml2
-LDFLAGS=-lxml2
+LDFLAGS=-lxml2 -lboost_system
 OBJS=$(CPP_SRC_FILES:.cpp=.o)
 LIB_TARGET=libquickfix.so
 
