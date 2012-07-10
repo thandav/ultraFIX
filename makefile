@@ -38,13 +38,13 @@ CPP_SRC_FILES	:= \
 		Utility.cpp	\
 
 CC=g++
-CCFLAGS=-fPIC -g -w -I/usr/include/libxml2
-LDFLAGS=-lxml2 -lboost_system
+CCFLAGS=-g -w -I/usr/include/libxml2
+LDFLAGS=-lxml2 -lboost_system -lpthread
 OBJS=$(CPP_SRC_FILES:.cpp=.o)
 LIB_TARGET=libquickfix.so
 
 $(LIB_TARGET): $(OBJS)
-	$(CC) -dynamiclib -o $@ $(OBJS) $(LDFLAGS)
+	$(CC) -fPIC -o $@ $(OBJS) $(LDFLAGS)
 
 .cpp.o:
 	$(CC) $(CCFLAGS) -c $< -o $@
